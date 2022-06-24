@@ -1,0 +1,13 @@
+node_modules/
+dist/
+tmp/
+uploads/
+
+# 環境変数
+.env
+
+# gcp
+service-account.json
+scripts/cloud_sql_proxy
+
+
