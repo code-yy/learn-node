@@ -9,12 +9,14 @@ const connection = mysql.createConnection({
   database: "todo_app",
 });
 
-let todos = [];
-
 router.get("/", function (req, res, next) {
-  res.render("index", {
-    title: "ToDo App",
-    todos: todos,
+  connection.query(`select * from tasks;`, (error, results) => {
+    console.log(error);
+    console.log(results);
+    res.render("index", {
+      title: "ToDo App",
+      todos: results,
+    });
   });
 });
 
@@ -31,7 +33,6 @@ router.post("/", function (req, res, next) {
     `insert into tasks (user_id, content) values (1, '${todo}');`,
     (error, results) => {
       console.log(error);
-      console.log(todo);
       res.redirect("/");
     }
   );
