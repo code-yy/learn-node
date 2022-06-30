@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
-    <%- include('./error_messages'); %> <% if(isAuth) { %>
+    <% if(isAuth) { %>
     <form action="/" method="post">
       <label>タスクの追加</label>
       <input required type="text" name="add" placeholder="何をする?" />

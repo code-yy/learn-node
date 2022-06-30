@@ -3,9 +3,7 @@ const router = express.Router();
 const passport = require("passport");
 
 router.get("/", function (req, res, next) {
-  const userId = req.session.userid;
-  console.log(req.session);
-  const isAuth = Boolean(userId);
+  const isAuth = req.isAuthenticated();
   res.render("signin", {
     title: "Sign in",
     isAuth: isAuth,
